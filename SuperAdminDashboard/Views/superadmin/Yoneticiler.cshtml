@@ -1,0 +1,143 @@
+﻿@{
+    Layout = "_SuperAdminLayout";
+    ViewData["Title"] = "Yöneticiler";
+    ViewData["ActivePage"] = "Managers";
+}
+
+@model SuperAdminDashboard.Models.viewmodel
+
+<!-- Topbar -->
+<header class="topbar">
+    <div>
+        <h1 class="mb-1">Yöneticiler</h1>
+        <p>Sisteme kayıtlı tüm apartman ve site yöneticilerini görüntüleyin ve yönetin.</p>
+    </div>
+   
+</header>
+
+<!-- Arama ve Filtreleme -->
+<div class="glass-panel" style="padding: 1.5rem; margin-bottom: 2rem; display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+    <div class="form-group" style="margin-bottom: 0; flex: 1; min-width: 250px;">
+        <div style="position: relative;">
+            <i class="fa-solid fa-search" style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--text-muted);"></i>
+            <input type="text" id="aramaInput" class="form-control" placeholder="İsim, e-posta veya apartman ara..." style="padding-left: 2.75rem;">
+        </div>
+    </div>
+
+
+    <div class="form-group" style="margin-bottom: 0; min-width: 180px;">
+        <select id="durumFilter" class="form-control" style="appearance: none; background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2394a3b8%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'); background-repeat: no-repeat; background-position: right 1rem top 50%; background-size: 0.65rem auto;">
+            <option value="">Tüm Durumlar</option>
+            <option value="active">Aktif</option>
+            <option value="passive">Pasif</option>
+        </select>
+    </div>
+
+
+    
+</div>
+
+<!-- Managers Table -->
+<div class="glass-panel table-container">
+    <div class="table-header">
+        <h2 style="font-size: 1.25rem;">Yönetici Listesi <span style="font-size: 0.9rem; color: var(--text-muted); font-weight: 400;">Toplam (@Model.yoneticiler.Count())</span></h2>
+    </div>
+
+    <div style="overflow-x: auto;">
+        <table class="custom-table" style="min-width: 800px;">
+            <thead>
+                <tr>
+                    <th>YÖNETİCİ BİLGİLERİ</th>
+                    <th>SORUMLU APARTMAN</th>
+                    <th>TELEFON</th>
+                    <th>KAYIT TARİHİ</th>
+                    <th>DURUM</th>
+                    <th style="text-align: right;">DÜZENLE</th>
+                </tr>
+            </thead>
+            @foreach (var yoneticiler in Model.yoneticiler)
+            {
+                 <tbody>
+
+                    <tr class="yonetici-row">
+                        <td>
+                            <div style="display: flex; align-items: center; gap: 1rem;">
+                                <div style="width: 40px; height: 40px; border-radius: 50%; background: rgba(168, 85, 247, 0.2); color: #a855f7; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 0.9rem;">
+                                    @yoneticiler.Name[0]@yoneticiler.Surname[0]
+                                </div>
+                                <div>
+                                    <div style="font-weight: 500; color: white;"> @yoneticiler.Name @yoneticiler.Surname</div>
+                                    <div style="font-size: 0.8rem; color: var(--text-muted);">@yoneticiler.Mail</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div style="font-weight: 500; color: var(--text-main);">@yoneticiler.Tenant.Name</div>
+                        </td>
+                        <td style="color: var(--text-muted);">@yoneticiler.PhoneNumber</td>
+                        <td style="color: var(--text-muted);">@yoneticiler.CreatedAt</td>
+
+                        @if(yoneticiler.Tenant.IsActive==0){<td><span class="badge badge-active" style="background: rgba(239, 68, 68, 0.1); color: var(--danger);">Pasif</span></td>}
+                        else
+                        {
+                            <td><span class="badge badge-active">Aktif</span></td>
+                        }
+
+
+
+                        <td>
+                            <div class="action-links" style="justify-content: center; gap: 0.5rem;">
+                                <form asp-controller="SuperAdmin" asp-action="YoneticiDurumDegistir" method="post" style="display:inline;">
+                                    <input type="hidden" name="id" value="@yoneticiler.Id" />
+
+                                    @if (yoneticiler.Tenant.IsActive == 1)
+                                    {
+                                        <label class="toggle-switch" title="Pasife Al">
+                                            <input type="checkbox" checked onchange="setTimeout(() => this.form.submit(), 300)" />
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    }
+                                    else
+                                    {
+                                        <label class="toggle-switch" title="Aktife Al">
+                                            <input type="checkbox" onchange="setTimeout(() => this.form.submit(), 300)" />
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    }
+
+                                </form>
+                            </div>
+                        </td>
+                        
+
+
+                    </tr>
+                </tbody>
+            }
+        </table>
+    </div>
+</div>
+
+<script>
+        document.getElementById("aramaInput").addEventListener("input", function () {
+        var aranan = this.value.toLowerCase();
+        document.querySelectorAll(".yonetici-row").forEach(function (satir) {
+            var metin = satir.textContent.toLowerCase();
+            satir.style.display = metin.includes(aranan) ? "" : "none";
+        });
+    });
+
+
+           document.getElementById("durumFilter").addEventListener("change", function () {
+            var secilen = this.value;
+            document.querySelectorAll(".yonetici-row").forEach(function (satir) {
+            if (secilen === "") {
+                satir.style.display = "";
+            } else if (secilen === "active") {
+                satir.style.display = satir.querySelector(".badge").textContent.trim() === "Aktif" ? "" : "none";
+            } else if (secilen === "passive") {
+                satir.style.display = satir.querySelector(".badge").textContent.trim() === "Pasif" ? "" : "none";
+            }
+        });
+    });
+</script>

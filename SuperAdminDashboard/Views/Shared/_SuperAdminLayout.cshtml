@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - SuperAdmin</title>
+    <!-- Use ~/ for paths if running in ASP.NET MVC, adjust if needed -->
+    <link rel="stylesheet" href="~/css/superadmin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    @RenderSection("Styles", required: false)
+</head>
+<body>
+
+    <div class="dashboard-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-building-shield"></i>
+                </div>
+                <span>SaaS Admin</span>
+            </div>
+
+            <ul class="nav-links">
+                <li>
+                    <a href="/SuperAdmin/Dashboard" class="nav-link @(ViewData["ActivePage"]?.ToString() == "Dashboard" ? "active" : "")">
+                        <i class="fa-solid fa-chart-pie"></i> Genel Bakış
+                    </a>
+                </li>
+                <li>
+                    <a href="/SuperAdmin/EklemeSayfasi" class="nav-link @(ViewData["ActivePage"]?.ToString() == "Apartments" ? "active" : "")">
+                        <i class="fa-solid fa-city"></i> Apartman & Yönetici
+                    </a>
+                </li>
+                <li>
+                    <a href="/SuperAdmin/Yoneticiler" class="nav-link @(ViewData["ActivePage"]?.ToString() == "Managers" ? "active" : "")">
+                        <i class="fa-solid fa-users-gear"></i> Yöneticiler
+                    </a>
+                </li>
+                <li>
+                    <a href="/SuperAdmin/Abonelik" class="nav-link @(ViewData["ActivePage"]?.ToString() == "Abonelik" ? "active" : "")">
+                        <i class="fa-solid fa-credit-card"></i> Abonelikler
+                    </a>
+                </li>
+                <li>
+                    <a href="/SuperAdmin/SistemAyarları" class="nav-link @(ViewData["ActivePage"]?.ToString() == "Settings" ? "active" : "")">
+                        <i class="fa-solid fa-gear"></i> Sistem Ayarları
+                    </a>
+                </li>
+            </ul>
+
+            <div class="sidebar-footer">
+                <a href="/Login/LoginPage" class="nav-link">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i> Çıkış Yap
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            @RenderBody()
+        </main>
+    </div>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

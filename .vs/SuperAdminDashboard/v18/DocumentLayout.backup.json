@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\petti\\OneDrive\\Masa\u00FCst\u00FC\\SuperAdminDashboard\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{64D6FE7E-1332-48F9-8B16-8297AC4C90F5}|SuperAdminDashboard\\SuperAdminDashboard.csproj|c:\\users\\petti\\onedrive\\masa\u00FCst\u00FC\\superadmindashboard\\superadmindashboard\\controllers\\superadmincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64D6FE7E-1332-48F9-8B16-8297AC4C90F5}|SuperAdminDashboard\\SuperAdminDashboard.csproj|solutionrelative:superadmindashboard\\controllers\\superadmincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SuperAdminController.cs",
+              "DocumentMoniker": "C:\\Users\\petti\\OneDrive\\Masa\u00FCst\u00FC\\SuperAdminDashboard\\SuperAdminDashboard\\Controllers\\SuperAdminController.cs",
+              "RelativeDocumentMoniker": "SuperAdminDashboard\\Controllers\\SuperAdminController.cs",
+              "ToolTip": "C:\\Users\\petti\\OneDrive\\Masa\u00FCst\u00FC\\SuperAdminDashboard\\SuperAdminDashboard\\Controllers\\SuperAdminController.cs",
+              "RelativeToolTip": "SuperAdminDashboard\\Controllers\\SuperAdminController.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABAAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-25T12:00:41.849Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

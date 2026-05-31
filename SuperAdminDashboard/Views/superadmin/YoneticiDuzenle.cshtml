@@ -1,0 +1,148 @@
+@{
+    Layout = "_SuperAdminLayout";
+    ViewData["Title"] = "Yönetici Düzenle";
+    ViewData["ActivePage"] = "Managers";
+}
+
+@model SuperAdminDashboard.Models.viewmodel
+
+<!-- Topbar -->
+<header class="topbar" style="margin-bottom: 1rem;">
+    <div>
+        <h1 class="mb-1" style="font-size: 1.5rem;">Yönetici Bilgilerini Düzenle</h1>
+        <p style="font-size: 0.9rem;">Sisteme kayıtlı apartman ve yönetici bilgilerini güncelleyin.</p>
+    </div>
+</header>
+
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert-error" style="background: rgba(239, 68, 68, 0.1); color: var(--danger); padding: 1rem; border-radius: var(--radius-md); margin-bottom: 1rem; display: flex; gap: 0.5rem; align-items: center;">
+        <i class="fa-solid fa-circle-exclamation"></i> @TempData["Error"]
+    </div>
+}
+@if (TempData["Success"] != null)
+{
+    <div class="alert-success" style="background: rgba(16, 185, 129, 0.1); color: var(--success); padding: 1rem; border-radius: var(--radius-md); margin-bottom: 1rem; display: flex; gap: 0.5rem; align-items: center;">
+        <i class="fa-solid fa-circle-check"></i> @TempData["Success"]
+    </div>
+}
+
+    
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 1.5rem; align-items: stretch;">
+        <!-- Sol Sütun: Apartman Bilgileri -->
+        <div class="glass-panel" style="padding: 1.75rem; display: flex; flex-direction: column;">
+            <div style="display: flex; align-items: center; gap: 1rem; border-bottom: 1px solid var(--surface-border); padding-bottom: 1rem; margin-bottom: 1.25rem;">
+                <div style="width: 44px; height: 44px; border-radius: var(--radius-md); background: rgba(59, 130, 246, 0.1); color: var(--primary-color); display: flex; align-items: center; justify-content: center; font-size: 1.15rem;">
+                    <i class="fa-solid fa-building"></i>
+                </div>
+                <div>
+                    <h3 style="margin: 0; font-size: 1.15rem;">Apartman Bilgileri</h3>
+                    <p style="font-size: 0.85rem; margin-top: 0.2rem;">Yöneticinin sorumlu olduğu apartman detayları</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Apartman / Site Adı</label>
+                <input type="text" name="ApartmentName" class="form-control"  value="@Model.users.Tenant.Name" required>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 0; flex: 1; display: flex; flex-direction: column;">
+                <label class="form-label">Açık Adres</label>
+            <textarea name="Address" class="form-control" value="@Model.users.Tenant.Address" style="resize: none; flex: 1; min-height: 80px;">@Model.users.Tenant.Address</textarea>
+            </div>
+            
+            
+        </div>
+
+        <!-- Sağ Sütun: Yönetici Hesabı Bilgileri -->
+        <div class="glass-panel" style="padding: 1.75rem; display: flex; flex-direction: column;">
+            <div style="display: flex; align-items: center; gap: 1rem; border-bottom: 1px solid var(--surface-border); padding-bottom: 1rem; margin-bottom: 1.25rem;">
+                <div style="width: 44px; height: 44px; border-radius: var(--radius-md); background: rgba(16, 185, 129, 0.1); color: var(--success); display: flex; align-items: center; justify-content: center; font-size: 1.15rem;">
+                    <i class="fa-solid fa-user-shield"></i>
+                </div>
+                <div>
+                    <h3 style="margin: 0; font-size: 1.15rem;">Yönetici Hesabı</h3>
+                    <p style="font-size: 0.85rem; margin-top: 0.2rem;">Yönetici kişisel bilgileri ve hesap durumu</p>
+                </div>
+            </div>
+
+            <div style="flex: 1; display: flex; flex-direction: column; gap: 1rem;">
+                <div class="form-row" style="margin-bottom: 0;">
+                    <div class="form-group" style="margin-bottom: 0;">
+                        <label class="form-label">Yönetici Adı</label>
+                        <input type="text" name="Name"  value="@Model.users.Name" class="form-control"  required>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 0;">
+                        <label class="form-label">Yönetici Soyadı</label>
+                        <input type="text" name="Surname" value="@Model.users.Surname" class="form-control"  required>
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 0;">
+                    <label class="form-label">Yönetici E-posta</label>
+                    <input type="email" name="Mail" value="@Model.users.Mail" class="form-control"  required>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 0;">
+                    <label class="form-label">Telefon Numarası</label>
+                    <input type="tel" name="PhoneNumber"  value="@Model.users.PhoneNumber"  class="form-control"  required>
+                </div>
+                
+                <div class="form-group" style="margin-bottom: 0;">
+                    <label class="form-label">Hesap Durumu</label>
+                    <select name="IsActive" class="form-control">
+                        @if(Model.users.Tenant.IsActive == 1)
+                        {
+                            <option value="1" selected>Aktif</option>
+                            <option value="0">Pasif</option>
+                        }
+                        else
+                        {
+                            <option value="1">Aktif</option>
+                            <option value="0" selected>Pasif</option>
+                        }
+                    </select>
+                </div>
+
+                <div class="form-row" style="margin-bottom: 0;">
+                    <div class="form-group" style="margin-bottom: 0;">
+                        <label class="form-label">Yeni Şifre (Değiştirmek için)</label>
+                        <input type="password" name="Password" value="@Model.users.Password" class="form-control" >
+                    </div>
+                    <div class="form-group" style="margin-bottom: 0;">
+                        <label class="form-label">Yeni Şifre (Tekrar)</label>
+                        <input type="password" name="ConfirmPassword" class="form-control" placeholder="••••••••">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Aksiyon / Submit Alanı -->
+    <div class="glass-panel" style="margin-top: 1.5rem; padding: 1.25rem 1.75rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <i class="fa-solid fa-circle-info text-muted"></i>
+            <p style="margin: 0; font-size: 0.9rem;">Değişiklikleri kaydetmeden önce lütfen bilgileri kontrol ediniz.</p>
+        </div>
+        <div style="display: flex; gap: 1rem;">
+            <a href="/SuperAdmin/Yoneticiler" class="btn btn-outline" style="min-width: 120px;">İptal</a>
+            <button type="submit" class="btn btn-primary" style="padding: 0.75rem 2rem; box-shadow: 0 4px 14px 0 rgba(59, 130, 246, 0.39);">
+                <i class="fa-solid fa-save" style="margin-right: 0.5rem;"></i> Değişiklikleri Kaydet
+            </button>
+        </div>
+    </div>
+
+<script>
+    document.getElementById('apartmanForm').addEventListener('submit', function(e) {
+        var password = document.querySelector('[name="Password"]').value;
+        var confirm = document.querySelector('[name="ConfirmPassword"]').value;
+        if (password || confirm) {
+            if (password !== confirm) {
+                e.preventDefault();
+                alert('Şifreler eşleşmiyor!');
+            }
+        }
+    });
+</script>

@@ -1,0 +1,333 @@
+﻿@{
+    Layout = "_SuperAdminLayout";
+    ViewData["Title"] = "Abonelikler ve Ödemeler";
+    ViewData["ActivePage"] = "Subscriptions";
+}
+
+<!-- Topbar -->
+<header class="topbar">
+    <div>
+        <h1 class="mb-1">Abonelikler</h1>
+        <p>Apartmanların aktif abonelik paketlerini, kullanım durumlarını ve ödeme geçmişlerini yönetin.</p>
+    </div>
+    <div class="user-profile">
+        <a href="#" class="btn btn-primary" style="padding: 0.6rem 1.25rem;">
+            <i class="fa-solid fa-file-invoice-dollar" style="margin-right: 0.5rem;"></i> Fatura Oluştur
+        </a>
+    </div>
+</header>
+
+<!-- Paket Planları -->
+<div class="sub-plans-grid">
+    <!-- Başlangıç -->
+    <div class="glass-panel plan-card">
+        <div class="plan-glow" style="background: radial-gradient(circle, #94a3b8 0%, transparent 70%);"></div>
+        <div class="plan-badge" style="background: rgba(148,163,184,0.15); color: #94a3b8;">
+            <i class="fa-solid fa-cube"></i> Başlangıç
+        </div>
+        <div class="plan-price" style="color: #94a3b8;">₺1.500 <span>/ ay</span></div>
+        <div class="plan-users"><i class="fa-solid fa-building" style="margin-right:0.3rem;"></i> 4 apartman kullanıyor</div>
+        <div class="plan-feature"><i class="fa-solid fa-check" style="background:rgba(148,163,184,0.15);color:#94a3b8;"></i> 50'ye kadar daire</div>
+        <div class="plan-feature"><i class="fa-solid fa-check" style="background:rgba(148,163,184,0.15);color:#94a3b8;"></i> Temel raporlama</div>
+        <div class="plan-feature"><i class="fa-solid fa-check" style="background:rgba(148,163,184,0.15);color:#94a3b8;"></i> E-posta desteği</div>
+    </div>
+    <!-- Pro -->
+    <div class="glass-panel plan-card" style="border-color: rgba(59,130,246,0.3);">
+        <div class="plan-glow" style="background: radial-gradient(circle, #3b82f6 0%, transparent 70%);"></div>
+        <div class="plan-badge" style="background: rgba(59,130,246,0.15); color: #3b82f6;">
+            <i class="fa-solid fa-bolt"></i> Pro
+        </div>
+        <div class="plan-price" style="color: #3b82f6;">₺3.500 <span>/ ay</span></div>
+        <div class="plan-users"><i class="fa-solid fa-building" style="margin-right:0.3rem;"></i> 6 apartman kullanıyor</div>
+        <div class="plan-feature"><i class="fa-solid fa-check" style="background:rgba(59,130,246,0.15);color:#3b82f6;"></i> 200'e kadar daire</div>
+        <div class="plan-feature"><i class="fa-solid fa-check" style="background:rgba(59,130,246,0.15);color:#3b82f6;"></i> Gelişmiş analitik</div>
+        <div class="plan-feature"><i class="fa-solid fa-check" style="background:rgba(59,130,246,0.15);color:#3b82f6;"></i> Öncelikli destek</div>
+    </div>
+    <!-- Premium -->
+    <div class="glass-panel plan-card" style="border-color: rgba(168,85,247,0.3);">
+        <div class="plan-glow" style="background: radial-gradient(circle, #a855f7 0%, transparent 70%);"></div>
+        <div class="plan-badge" style="background: rgba(168,85,247,0.15); color: #a855f7;">
+            <i class="fa-solid fa-gem"></i> Premium
+        </div>
+        <div class="plan-price" style="color: #a855f7;">₺6.000 <span>/ ay</span></div>
+        <div class="plan-users"><i class="fa-solid fa-building" style="margin-right:0.3rem;"></i> 4 apartman kullanıyor</div>
+        <div class="plan-feature"><i class="fa-solid fa-check" style="background:rgba(168,85,247,0.15);color:#a855f7;"></i> Sınırsız daire</div>
+        <div class="plan-feature"><i class="fa-solid fa-check" style="background:rgba(168,85,247,0.15);color:#a855f7;"></i> Tam API erişimi</div>
+        <div class="plan-feature"><i class="fa-solid fa-check" style="background:rgba(168,85,247,0.15);color:#a855f7;"></i> 7/24 destek</div>
+    </div>
+</div>
+
+<!-- Gelir Grafiği + Ödeme Durumu -->
+<div class="sub-revenue-row">
+    <div class="glass-panel revenue-chart-area">
+        <div class="chart-header">
+            <h2 style="font-size: 1.15rem;">Aylık Gelir</h2>
+            <div style="font-size: 0.85rem; color: var(--text-muted);">
+                <span style="color: var(--success); font-weight:600;">+12.5%</span> geçen aya göre
+            </div>
+        </div>
+        <div class="chart-bars">
+            <div class="chart-bar-col"><div class="chart-bar" style="height:45%;"><span class="chart-bar-value">₺28K</span></div><span class="chart-bar-label">Oca</span></div>
+            <div class="chart-bar-col"><div class="chart-bar" style="height:55%;"><span class="chart-bar-value">₺32K</span></div><span class="chart-bar-label">Şub</span></div>
+            <div class="chart-bar-col"><div class="chart-bar" style="height:50%;"><span class="chart-bar-value">₺30K</span></div><span class="chart-bar-label">Mar</span></div>
+            <div class="chart-bar-col"><div class="chart-bar" style="height:65%;"><span class="chart-bar-value">₺36K</span></div><span class="chart-bar-label">Nis</span></div>
+            <div class="chart-bar-col"><div class="chart-bar" style="height:85%; background: linear-gradient(180deg, #a855f7, rgba(168,85,247,0.3));"><span class="chart-bar-value">₺42K</span></div><span class="chart-bar-label" style="color:var(--text-main); font-weight:600;">May</span></div>
+            <div class="chart-bar-col"><div class="chart-bar" style="height:40%; opacity:0.4;"><span class="chart-bar-value" style="opacity:0.5;">₺25K</span></div><span class="chart-bar-label">Haz</span></div>
+        </div>
+    </div>
+
+    <div class="glass-panel payment-status-card">
+        <h2 style="font-size: 1.15rem;">Ödeme Durumu</h2>
+        <div class="status-ring-wrap">
+            <svg width="140" height="140" viewBox="0 0 140 140">
+                <circle cx="70" cy="70" r="55" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="14" />
+                <circle cx="70" cy="70" r="55" fill="none" stroke="#10b981" stroke-width="14" stroke-dasharray="242 104" stroke-dashoffset="0" stroke-linecap="round" transform="rotate(-90 70 70)" />
+                <circle cx="70" cy="70" r="55" fill="none" stroke="#f59e0b" stroke-width="14" stroke-dasharray="49 297" stroke-dashoffset="-242" stroke-linecap="round" transform="rotate(-90 70 70)" />
+                <circle cx="70" cy="70" r="55" fill="none" stroke="#ef4444" stroke-width="14" stroke-dasharray="55 291" stroke-dashoffset="-291" stroke-linecap="round" transform="rotate(-90 70 70)" />
+                <text x="70" y="65" text-anchor="middle" fill="white" font-size="20" font-weight="700">14</text>
+                <text x="70" y="82" text-anchor="middle" fill="#94a3b8" font-size="10">Fatura</text>
+            </svg>
+        </div>
+        <div class="status-legend">
+            <div class="legend-item">
+                <div class="legend-left"><span class="legend-dot" style="background:#10b981;"></span> Ödendi</div>
+                <span class="legend-value">10</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-left"><span class="legend-dot" style="background:#f59e0b;"></span> Bekliyor</div>
+                <span class="legend-value">2</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-left"><span class="legend-dot" style="background:#ef4444;"></span> Gecikti</div>
+                <span class="legend-value">2</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Finansal Özet -->
+<div class="stats-grid" style="margin-bottom: 2rem;">
+    <div class="glass-panel stat-card">
+        <div class="stat-icon" style="color: var(--success); background: rgba(16, 185, 129, 0.1);">
+            <i class="fa-solid fa-wallet"></i>
+        </div>
+        <div class="stat-details">
+            <p class="form-label">Aylık Gelir</p>
+            <h3 style="font-size: 1.75rem;">₺42.500</h3>
+            <div class="sub-progress-bar"><div class="sub-progress-fill" style="width:85%; background: linear-gradient(90deg, #10b981, #34d399);"></div></div>
+        </div>
+    </div>
+    <div class="glass-panel stat-card">
+        <div class="stat-icon" style="color: var(--primary-color); background: rgba(59, 130, 246, 0.1);">
+            <i class="fa-solid fa-gem"></i>
+        </div>
+        <div class="stat-details">
+            <p class="form-label">Premium Aboneler</p>
+            <h3 style="font-size: 1.75rem;">8</h3>
+            <div class="sub-progress-bar"><div class="sub-progress-fill" style="width:57%; background: linear-gradient(90deg, #3b82f6, #60a5fa);"></div></div>
+        </div>
+    </div>
+    <div class="glass-panel stat-card">
+        <div class="stat-icon" style="color: var(--danger); background: rgba(239, 68, 68, 0.1);">
+            <i class="fa-solid fa-clock-rotate-left"></i>
+        </div>
+        <div class="stat-details">
+            <p class="form-label">Geciken Ödemeler</p>
+            <h3 style="font-size: 1.75rem;">2</h3>
+            <div class="sub-progress-bar"><div class="sub-progress-fill" style="width:14%; background: linear-gradient(90deg, #ef4444, #f87171);"></div></div>
+        </div>
+    </div>
+</div>
+
+<!-- Abonelik Tablosu -->
+<div class="glass-panel table-container">
+    <div class="table-header">
+        <h2 style="font-size: 1.25rem;">Abonelik & Ödeme Listesi</h2>
+        <div style="display:flex; gap:0.75rem; align-items:center;">
+            <div style="position: relative;">
+                <i class="fa-solid fa-search" style="position: absolute; left: 0.75rem; top: 50%; transform: translateY(-50%); color: var(--text-muted); font-size:0.8rem;"></i>
+                <input type="text" class="form-control" placeholder="Ara..." style="padding-left: 2.25rem; height:36px; font-size:0.85rem; width:200px;">
+            </div>
+        </div>
+    </div>
+
+    <div class="tab-filters">
+        <button class="tab-filter-btn active">Tümü (14)</button>
+        <button class="tab-filter-btn">Ödendi (10)</button>
+        <button class="tab-filter-btn">Bekliyor (2)</button>
+        <button class="tab-filter-btn">Gecikti (2)</button>
+    </div>
+
+    <div style="overflow-x: auto;">
+        <table class="custom-table" style="min-width: 900px;">
+            <thead>
+                <tr>
+                    <th>APARTMAN / SİTE</th>
+                    <th>PAKET</th>
+                    <th>DÖNEM</th>
+                    <th>TUTAR</th>
+                    <th>SON ÖDEME</th>
+                    <th>DURUM</th>
+                    <th style="text-align: right;">İŞLEMLER</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <div style="width: 40px; height: 40px; border-radius: var(--radius-sm); background: rgba(168,85,247,0.1); color: #a855f7; display: flex; align-items: center; justify-content: center;">
+                                <i class="fa-solid fa-building"></i>
+                            </div>
+                            <div>
+                                <div style="font-weight: 500; color: white;">Güneş Sitesi</div>
+                                <div style="font-size: 0.8rem; color: var(--text-muted);">40 Daire · Ataşehir</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div style="display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 500; color: #a855f7;">
+                            <i class="fa-solid fa-gem" style="font-size: 0.8rem;"></i> Premium
+                        </div>
+                    </td>
+                    <td><div style="color: var(--text-muted);">Mayıs 2026</div></td>
+                    <td><div style="font-weight: 600; color: white;">₺4.500</div></td>
+                    <td style="color: var(--text-muted);">15 Mayıs 2026</td>
+                    <td><span class="badge badge-active">Ödendi</span></td>
+                    <td>
+                        <div class="sub-table-actions">
+                            <a href="#" style="color: var(--text-muted);" title="Fatura"><i class="fa-solid fa-file-pdf"></i></a>
+                            <a href="#" style="color: var(--primary-color);" title="Detay"><i class="fa-solid fa-circle-info"></i></a>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <div style="width: 40px; height: 40px; border-radius: var(--radius-sm); background: rgba(59,130,246,0.1); color: var(--primary-color); display: flex; align-items: center; justify-content: center;">
+                                <i class="fa-solid fa-building"></i>
+                            </div>
+                            <div>
+                                <div style="font-weight: 500; color: white;">Çamlık Apartmanı</div>
+                                <div style="font-size: 0.8rem; color: var(--text-muted);">24 Daire · Kadıköy</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div style="display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 500; color: var(--primary-color);">
+                            <i class="fa-solid fa-bolt" style="font-size: 0.8rem;"></i> Pro
+                        </div>
+                    </td>
+                    <td><div style="color: var(--text-muted);">Yıllık (2026)</div></td>
+                    <td><div style="font-weight: 600; color: white;">₺24.000</div></td>
+                    <td style="color: var(--text-muted);">05 Nisan 2026</td>
+                    <td><span class="badge badge-active">Ödendi</span></td>
+                    <td>
+                        <div class="sub-table-actions">
+                            <a href="#" style="color: var(--text-muted);" title="Fatura"><i class="fa-solid fa-file-pdf"></i></a>
+                            <a href="#" style="color: var(--primary-color);" title="Detay"><i class="fa-solid fa-circle-info"></i></a>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <div style="width: 40px; height: 40px; border-radius: var(--radius-sm); background: rgba(239,68,68,0.1); color: var(--danger); display: flex; align-items: center; justify-content: center;">
+                                <i class="fa-solid fa-building"></i>
+                            </div>
+                            <div>
+                                <div style="font-weight: 500; color: white;">Zirve Rezidans</div>
+                                <div style="font-size: 0.8rem; color: var(--text-muted);">120 Daire · Şişli</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div style="display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 500; color: #a855f7;">
+                            <i class="fa-solid fa-gem" style="font-size: 0.8rem;"></i> Premium
+                        </div>
+                    </td>
+                    <td><div style="color: var(--text-muted);">Mayıs 2026</div></td>
+                    <td><div style="font-weight: 600; color: white;">₺12.000</div></td>
+                    <td style="color: var(--text-muted);">10 Mayıs 2026</td>
+                    <td><span class="badge" style="background: rgba(239, 68, 68, 0.1); color: var(--danger);">Gecikti</span></td>
+                    <td>
+                        <div class="sub-table-actions">
+                            <a href="#" style="color: #f59e0b;" title="Hatırlatma"><i class="fa-solid fa-bell"></i></a>
+                            <a href="#" style="color: var(--success);" title="Ödendi İşaretle"><i class="fa-solid fa-check"></i></a>
+                            <a href="#" style="color: var(--primary-color);" title="Detay"><i class="fa-solid fa-circle-info"></i></a>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <div style="width: 40px; height: 40px; border-radius: var(--radius-sm); background: rgba(245,158,11,0.1); color: #f59e0b; display: flex; align-items: center; justify-content: center;">
+                                <i class="fa-solid fa-building"></i>
+                            </div>
+                            <div>
+                                <div style="font-weight: 500; color: white;">Mavi Evler</div>
+                                <div style="font-size: 0.8rem; color: var(--text-muted);">15 Daire · Beşiktaş</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div style="display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 500; color: var(--text-muted);">
+                            <i class="fa-solid fa-cube" style="font-size: 0.8rem;"></i> Başlangıç
+                        </div>
+                    </td>
+                    <td><div style="color: var(--text-muted);">Haziran 2026</div></td>
+                    <td><div style="font-weight: 600; color: white;">₺1.500</div></td>
+                    <td style="color: var(--text-muted);">01 Haziran 2026</td>
+                    <td><span class="badge" style="background: rgba(245, 158, 11, 0.1); color: #f59e0b;">Bekliyor</span></td>
+                    <td>
+                        <div class="sub-table-actions">
+                            <a href="#" style="color: var(--success);" title="Ödendi İşaretle"><i class="fa-solid fa-check"></i></a>
+                            <a href="#" style="color: var(--primary-color);" title="Detay"><i class="fa-solid fa-circle-info"></i></a>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <div style="width: 40px; height: 40px; border-radius: var(--radius-sm); background: rgba(59,130,246,0.1); color: var(--primary-color); display: flex; align-items: center; justify-content: center;">
+                                <i class="fa-solid fa-building"></i>
+                            </div>
+                            <div>
+                                <div style="font-weight: 500; color: white;">Yeşilvadi Konutları</div>
+                                <div style="font-size: 0.8rem; color: var(--text-muted);">65 Daire · Üsküdar</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div style="display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 500; color: var(--primary-color);">
+                            <i class="fa-solid fa-bolt" style="font-size: 0.8rem;"></i> Pro
+                        </div>
+                    </td>
+                    <td><div style="color: var(--text-muted);">Mayıs 2026</div></td>
+                    <td><div style="font-weight: 600; color: white;">₺3.500</div></td>
+                    <td style="color: var(--text-muted);">18 Mayıs 2026</td>
+                    <td><span class="badge badge-active">Ödendi</span></td>
+                    <td>
+                        <div class="sub-table-actions">
+                            <a href="#" style="color: var(--text-muted);" title="Fatura"><i class="fa-solid fa-file-pdf"></i></a>
+                            <a href="#" style="color: var(--primary-color);" title="Detay"><i class="fa-solid fa-circle-info"></i></a>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Pagination -->
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--surface-border);">
+        <div style="font-size: 0.85rem; color: var(--text-muted);">
+            Toplam 14 faturadan 1-5 arası gösteriliyor
+        </div>
+        <div style="display: flex; gap: 0.5rem;">
+            <button class="btn btn-outline" style="padding: 0.4rem 0.75rem;" disabled><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="btn btn-primary" style="padding: 0.4rem 0.85rem;">1</button>
+            <button class="btn btn-outline" style="padding: 0.4rem 0.85rem;">2</button>
+            <button class="btn btn-outline" style="padding: 0.4rem 0.85rem;">3</button>
+            <button class="btn btn-outline" style="padding: 0.4rem 0.75rem;"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,285 @@
+﻿@{
+    Layout = "_SuperAdminLayout";
+    ViewData["Title"] = "Sistem Ayarları";
+    ViewData["ActivePage"] = "Settings";
+}
+
+<!-- Topbar -->
+<header class="topbar">
+    <div>
+        <h1 class="mb-1">Sistem Ayarları</h1>
+        <p>Platform genelindeki yapılandırmaları, bildirim tercihlerini ve güvenlik ayarlarını yönetin.</p>
+    </div>
+    <div class="user-profile">
+        <a href="#" class="btn btn-primary" style="padding: 0.6rem 1.25rem;" onclick="alert('Ayarlar kaydedildi!')">
+            <i class="fa-solid fa-floppy-disk" style="margin-right: 0.5rem;"></i> Kaydet
+        </a>
+    </div>
+</header>
+
+<!-- Tabs -->
+<div class="settings-tabs">
+    <button class="settings-tab active"><i class="fa-solid fa-sliders"></i> Genel</button>
+    <button class="settings-tab"><i class="fa-solid fa-bell"></i> Bildirimler</button>
+    <button class="settings-tab"><i class="fa-solid fa-shield-halved"></i> Güvenlik</button>
+    <button class="settings-tab"><i class="fa-solid fa-palette"></i> Görünüm</button>
+    <button class="settings-tab"><i class="fa-solid fa-plug"></i> Entegrasyonlar</button>
+</div>
+
+<!-- Genel Ayarlar -->
+<div class="glass-panel settings-section">
+    <div class="settings-section-header">
+        <div class="sec-icon" style="background: rgba(59,130,246,0.1); color: var(--primary-color);">
+            <i class="fa-solid fa-building-shield"></i>
+        </div>
+        <div>
+            <h2>Platform Bilgileri</h2>
+            <p>Sistemin temel yapılandırma ayarları</p>
+        </div>
+    </div>
+
+    <div class="settings-grid-2">
+        <div class="form-group">
+            <label class="form-label">Platform Adı</label>
+            <input type="text" class="form-control" value="SaaS Apartman Yönetim Sistemi">
+        </div>
+        <div class="form-group">
+            <label class="form-label">İletişim E-postası</label>
+            <input type="email" class="form-control" value="destek@saasadmin.com">
+        </div>
+        <div class="form-group">
+            <label class="form-label">Varsayılan Dil</label>
+            <select class="form-control" style="appearance: none; background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2394a3b8%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'); background-repeat: no-repeat; background-position: right 1rem top 50%; background-size: 0.65rem auto;">
+                <option selected>Türkçe</option>
+                <option>English</option>
+                <option>Deutsch</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-label">Zaman Dilimi</label>
+            <select class="form-control" style="appearance: none; background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2394a3b8%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'); background-repeat: no-repeat; background-position: right 1rem top 50%; background-size: 0.65rem auto;">
+                <option selected>Europe/Istanbul (UTC+3)</option>
+                <option>Europe/London (UTC+0)</option>
+                <option>Europe/Berlin (UTC+1)</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+<!-- Bildirim Ayarları -->
+<div class="glass-panel settings-section">
+    <div class="settings-section-header">
+        <div class="sec-icon" style="background: rgba(168,85,247,0.1); color: #a855f7;">
+            <i class="fa-solid fa-bell"></i>
+        </div>
+        <div>
+            <h2>Bildirim Tercihleri</h2>
+            <p>E-posta ve sistem bildirim ayarlarını yapılandırın</p>
+        </div>
+    </div>
+
+    <div class="setting-row">
+        <div class="setting-info">
+            <h4>Yeni Apartman Kaydı</h4>
+            <p>Yeni bir apartman sisteme eklendiğinde bildirim al</p>
+        </div>
+        <label class="toggle-switch">
+            <input type="checkbox" checked>
+            <span class="toggle-slider"></span>
+        </label>
+    </div>
+    <div class="setting-row">
+        <div class="setting-info">
+            <h4>Ödeme Bildirimleri</h4>
+            <p>Ödeme yapıldığında veya geciktiğinde e-posta gönder</p>
+        </div>
+        <label class="toggle-switch">
+            <input type="checkbox" checked>
+            <span class="toggle-slider"></span>
+        </label>
+    </div>
+    <div class="setting-row">
+        <div class="setting-info">
+            <h4>Haftalık Rapor</h4>
+            <p>Her hafta Pazartesi günü sistem özet raporu gönder</p>
+        </div>
+        <label class="toggle-switch">
+            <input type="checkbox" checked>
+            <span class="toggle-slider"></span>
+        </label>
+    </div>
+    <div class="setting-row">
+        <div class="setting-info">
+            <h4>Güvenlik Uyarıları</h4>
+            <p>Şüpheli giriş denemeleri için anlık bildirim</p>
+        </div>
+        <label class="toggle-switch">
+            <input type="checkbox" checked>
+            <span class="toggle-slider"></span>
+        </label>
+    </div>
+    <div class="setting-row">
+        <div class="setting-info">
+            <h4>Pazarlama E-postaları</h4>
+            <p>Yeni özellikler ve güncellemeler hakkında bilgi al</p>
+        </div>
+        <label class="toggle-switch">
+            <input type="checkbox">
+            <span class="toggle-slider"></span>
+        </label>
+    </div>
+</div>
+
+<!-- Güvenlik Ayarları -->
+<div class="glass-panel settings-section">
+    <div class="settings-section-header">
+        <div class="sec-icon" style="background: rgba(16,185,129,0.1); color: var(--success);">
+            <i class="fa-solid fa-shield-halved"></i>
+        </div>
+        <div>
+            <h2>Güvenlik</h2>
+            <p>Hesap güvenliği ve oturum yönetimi</p>
+        </div>
+    </div>
+
+    <div class="setting-row">
+        <div class="setting-info">
+            <h4>İki Faktörlü Doğrulama (2FA)</h4>
+            <p>Giriş yaparken ek güvenlik katmanı ekleyin</p>
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <span class="info-pill" style="background: rgba(16,185,129,0.1); color: var(--success);">
+                <i class="fa-solid fa-check-circle"></i> Aktif
+            </span>
+            <button class="btn btn-outline" style="padding: 0.4rem 0.85rem; font-size: 0.8rem;">Yapılandır</button>
+        </div>
+    </div>
+    <div class="setting-row">
+        <div class="setting-info">
+            <h4>Oturum Süresi</h4>
+            <p>İşlem yapılmadığında otomatik çıkış süresi</p>
+        </div>
+        <select class="form-control" style="width: 180px; appearance: none; background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2394a3b8%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'); background-repeat: no-repeat; background-position: right 1rem top 50%; background-size: 0.65rem auto;">
+            <option>15 dakika</option>
+            <option selected>30 dakika</option>
+            <option>1 saat</option>
+            <option>4 saat</option>
+        </select>
+    </div>
+    <div class="setting-row">
+        <div class="setting-info">
+            <h4>IP Kısıtlaması</h4>
+            <p>Sadece belirli IP adreslerinden giriş yapılmasına izin ver</p>
+        </div>
+        <label class="toggle-switch">
+            <input type="checkbox">
+            <span class="toggle-slider"></span>
+        </label>
+    </div>
+    <div class="setting-row">
+        <div class="setting-info">
+            <h4>Şifre Politikası</h4>
+            <p>Minimum 8 karakter, büyük harf ve rakam zorunlu</p>
+        </div>
+        <span class="info-pill">
+            <i class="fa-solid fa-lock"></i> Güçlü
+        </span>
+    </div>
+</div>
+
+<!-- Sistem Bilgileri -->
+<div class="settings-grid-2">
+    <div class="glass-panel settings-section" style="margin-bottom: 1.5rem;">
+        <div class="settings-section-header">
+            <div class="sec-icon" style="background: rgba(245,158,11,0.1); color: #f59e0b;">
+                <i class="fa-solid fa-server"></i>
+            </div>
+            <div>
+                <h2>Sistem Bilgileri</h2>
+                <p>Platform versiyonu ve durum bilgileri</p>
+            </div>
+        </div>
+        <div class="setting-row">
+            <div class="setting-info"><h4>Versiyon</h4></div>
+            <span class="info-pill"><i class="fa-solid fa-code-branch"></i> v2.4.1</span>
+        </div>
+        <div class="setting-row">
+            <div class="setting-info"><h4>Son Güncelleme</h4></div>
+            <span style="color: var(--text-muted); font-size: 0.85rem;">18 Mayıs 2026</span>
+        </div>
+        <div class="setting-row">
+            <div class="setting-info"><h4>Sunucu Durumu</h4></div>
+            <span class="info-pill" style="background: rgba(16,185,129,0.1); color: var(--success);">
+                <i class="fa-solid fa-circle" style="font-size: 0.5rem;"></i> Çalışıyor
+            </span>
+        </div>
+        <div class="setting-row">
+            <div class="setting-info"><h4>Veritabanı</h4></div>
+            <span style="color: var(--text-muted); font-size: 0.85rem;">PostgreSQL 15.2</span>
+        </div>
+        <div class="setting-row">
+            <div class="setting-info"><h4>Uptime</h4></div>
+            <span style="color: var(--text-muted); font-size: 0.85rem;">34 gün, 12 saat</span>
+        </div>
+    </div>
+
+    <!-- Bakım & Tehlikeli Bölge -->
+    <div>
+        <div class="glass-panel settings-section" style="margin-bottom: 1.5rem;">
+            <div class="settings-section-header">
+                <div class="sec-icon" style="background: rgba(59,130,246,0.1); color: var(--primary-color);">
+                    <i class="fa-solid fa-database"></i>
+                </div>
+                <div>
+                    <h2>Bakım</h2>
+                    <p>Yedekleme ve bakım işlemleri</p>
+                </div>
+            </div>
+            <div class="setting-row">
+                <div class="setting-info">
+                    <h4>Otomatik Yedekleme</h4>
+                    <p>Her gece 03:00'da çalışır</p>
+                </div>
+                <label class="toggle-switch">
+                    <input type="checkbox" checked>
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+            <div class="setting-row">
+                <div class="setting-info">
+                    <h4>Son Yedekleme</h4>
+                    <p>20 Mayıs 2026, 03:00</p>
+                </div>
+                <button class="btn btn-outline" style="padding: 0.4rem 0.85rem; font-size: 0.8rem;">
+                    <i class="fa-solid fa-download" style="margin-right:0.3rem;"></i> İndir
+                </button>
+            </div>
+        </div>
+
+        <div class="glass-panel settings-section danger-zone">
+            <div class="settings-section-header">
+                <div class="sec-icon" style="background: rgba(239,68,68,0.1); color: var(--danger);">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                </div>
+                <div>
+                    <h2>Tehlikeli Bölge</h2>
+                    <p>Dikkatli olun, bu işlemler geri alınamaz</p>
+                </div>
+            </div>
+            <div class="setting-row">
+                <div class="setting-info">
+                    <h4>Önbelleği Temizle</h4>
+                    <p>Tüm önbellek verilerini sıfırla</p>
+                </div>
+                <button class="btn-danger"><i class="fa-solid fa-broom"></i> Temizle</button>
+            </div>
+            <div class="setting-row">
+                <div class="setting-info">
+                    <h4>Tüm Oturumları Kapat</h4>
+                    <p>Tüm aktif oturumları sonlandır</p>
+                </div>
+                <button class="btn-danger"><i class="fa-solid fa-right-from-bracket"></i> Kapat</button>
+            </div>
+        </div>
+    </div>
+</div>

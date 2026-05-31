@@ -1,0 +1,94 @@
+﻿@{
+    Layout = "_SuperAdminLayout";
+    ViewData["Title"] = "Dashboard";
+    ViewData["ActivePage"] = "Dashboard";
+}
+
+@model SuperAdminDashboard.Models.viewmodel
+
+<!-- Topbar -->
+<header class="topbar">
+    <div>
+        <h1 class="mb-1">Genel Bakış</h1>
+        <p>Sistemin genel durumunu ve bağlı apartmanları görüntüleyin.</p>
+    </div>
+    <div class="user-profile">
+        <div style="text-align: right;">
+            <div style="font-weight: 500; font-size: 0.95rem;">@Model.superadminbilgileri.Name @Model.superadminbilgileri.Surname</div>
+            <div style="font-size: 0.8rem; color: var(--text-muted);">@Model.superadminbilgileri.Mail</div>
+        </div>
+        <div class="avatar">@Model.superadminbilgileri.Name[0]@Model.superadminbilgileri.Surname[0]</div>
+    </div>
+</header>
+
+<!-- Stats -->
+<div class="stats-grid">
+    <div class="glass-panel stat-card">
+        <div class="stat-icon">
+            <i class="fa-solid fa-building"></i>
+        </div>
+        <div class="stat-details">
+            <p class="form-label">Toplam Apartman</p>
+            <h3>@Model.toplamapartmansayisi</h3>
+        </div>
+    </div>
+    <div class="glass-panel stat-card">
+        <div class="stat-icon" style="color: var(--success); background: rgba(16, 185, 129, 0.1);">
+            <i class="fa-solid fa-user-tie"></i>
+        </div>
+        <div class="stat-details">
+            <p class="form-label">Aktif Yöneticiler</p>
+            <h3>@Model.aktifyoneticisayisi</h3>
+        </div>
+    </div>
+    <div class="glass-panel stat-card">
+        <div class="stat-icon" style="color: #a855f7; background: rgba(168, 85, 247, 0.1);">
+            <i class="fa-solid fa-users"></i>
+        </div>
+        <div class="stat-details">
+            <p class="form-label">Kayıtlı Sakinler</p>
+            <h3>@Model.toplamkayitlisakinsayisi</h3>
+        </div>
+    </div>
+</div>
+
+<!-- Apartments Table -->
+<div class="glass-panel table-container">
+    <div class="table-header">
+        <h2>Kayıtlı Apartmanlar</h2>
+        
+    </div>
+    <div style="overflow-x: auto;">
+        <table class="custom-table">
+            <thead>
+                <tr>
+                    <th>APARTMAN ADI</th>
+                    <th>YÖNETİCİ</th>
+                    <th>DAİRE SAYISI</th>
+                    <th>KAYIT TARİHİ</th>
+                    <th>DURUM</th>
+                  
+                </tr>
+            </thead>
+            @foreach(var apartmanlar in Model.yoneticiler)
+            {
+                <tbody>
+                    <tr>
+                    <td>
+                        <div style="font-weight: 500; color: white;">@apartmanlar.Tenant.Name</div>
+                        <div style="font-size: 0.8rem; color: var(--text-muted);">@apartmanlar.Tenant.Address</div>
+                    </td>
+                    <td>@apartmanlar.Name @apartmanlar.Surname </td>
+                    <td>@Model.apartmanSayisi.Count(x=>x.TenantId==apartmanlar.TenantId)</td>
+                        <td>@apartmanlar.Tenant.CreatedAt.Value.ToString("dd MMMM yyyy")</td>
+                    @if(apartmanlar.Tenant.IsActive==1){<td><span class="badge badge-active">Aktif</span></td>}
+                    else{<td><span class="badge badge-active" style="background: rgba(239, 68, 68, 0.1); color: var(--danger);">Pasif</span></td>}
+                    
+                    </tr>
+                </tbody>
+            }
+                
+            
+        </table>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+﻿@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuperAdmin Girişi - Apartman Yönetim SaaS</title>
+    <link rel="stylesheet" href="~/css/superadmin.css">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+<body>
+
+    <div class="login-container">
+        <div class="glass-panel login-card">
+            <div class="login-header">
+                <div style="display: flex; justify-content: center; margin-bottom: 1rem;">
+                    <div style="width: 48px; height: 48px; background: var(--primary-color); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: white; box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);">
+                        <i class="fa-solid fa-building-shield"></i>
+                    </div>
+                </div>
+                <h2>Yönetim Paneli</h2>
+                <p>Sistemi yönetmek için giriş yapın</p>
+            </div>
+
+            <form method="post" asp-action="Login" asp-controller="Login">
+                <div class="form-group">
+                    <label class="form-label">E-posta Adresi</label>
+                    <input type="email" name="mail" class="form-control" placeholder="superadmin@sistem.com" required>
+                </div>
+
+                <div class="form-group mb-4">
+                    <label class="form-label">Şifre</label>
+                    <input type="password" name="password" class="form-control" placeholder="••••••••" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%;">
+                    <i class="fa-solid fa-right-to-bracket" style="margin-right: 0.5rem;"></i> Giriş Yap
+                </button>
+            </form>
+
+            <div style="text-align: center; margin-top: 2rem;">
+                <p style="font-size: 0.85rem;">Sadece yetkili personel içindir.</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
